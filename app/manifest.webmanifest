@@ -1,0 +1,20 @@
+{
+  "name": "அறம் · Aram",
+  "short_name": "அறம்",
+  "description": "Tamil wisdom, one verse at a time: Thirukkural, Sangam poetry, Tevaram and more, with a metre check for every verse.",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ECDFC2",
+  "theme_color": "#43251A",
+  "lang": "ta",
+  "dir": "auto",
+  "categories": ["education", "books", "lifestyle"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
