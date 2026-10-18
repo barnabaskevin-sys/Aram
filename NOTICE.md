@@ -27,8 +27,8 @@ The metre check and the kolam drawing come from **Yāppu 0.5** (MIT, © 2026 Kev
 
 ## Tools used to build the app
 
-Capacitor (MIT), @capacitor/assets (MIT), Playwright (Apache-2.0, used only to test and to draw the icon).
+Vite (MIT), vite-plugin-pwa and Workbox (MIT), Playwright (Apache-2.0, used only to test and to draw the icon).
 
-## AI-written meanings
+## AI-written text
 
-Meanings and answers shown in the app are written by an AI model (Anthropic's Claude) from the verse itself. They are study aids, not authoritative commentary. The interface texts in 44 languages besides English were also written with AI help and have **not** been reviewed by native speakers; see the README.
+The interface texts in 44 languages besides English were written with AI help (Anthropic's Claude) and have **not** been reviewed by native speakers; see the README. The app itself shows no AI-written meanings: every verse is shown as its source gives it.

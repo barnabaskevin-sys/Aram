@@ -1,15 +1,10 @@
-// Usage: node tools/validate_i18n.js  — checks every language file against the English master.
-const fs = require('fs'), path = require('path'), vm = require('vm');
-const dir = path.join(__dirname, '..', 'app', 'i18n');
-const files = ['core.js', ...fs.readdirSync(dir).filter(f => /^lang-.*\.js$/.test(f)).sort()];
-const sandbox = { window: {} }; sandbox.ARAM_UI = null;
-vm.createContext(sandbox);
-vm.runInContext(fs.readFileSync(path.join(dir, 'core.js'), 'utf8'), sandbox);
-const UI = sandbox.window.ARAM_UI; sandbox.ARAM_UI = UI;
-for (const f of files.slice(1)) vm.runInContext(fs.readFileSync(path.join(dir, f), 'utf8'), sandbox, { filename: f });
+// Usage: npm run check:i18n  — checks every language file against the English master.
+import { UI } from '../src/i18n/index.js';
+
 const en = UI.DICT.en, keys = Object.keys(en);
 const ph = s => (s.match(/\{[a-z]+\}/g) || []).sort().join(',');
-let bad = 0, have = [];
+let bad = 0;
+const have = [];
 for (const [id] of UI.LANGS) {
   if (id === 'en') continue;
   const d = UI.DICT[id];
@@ -20,7 +15,7 @@ for (const [id] of UI.LANGS) {
     if (ph(d[k]) !== ph(en[k])) { console.log(id, 'placeholder mismatch', k, ph(d[k]), 'vs', ph(en[k])); bad++; }
   }
   for (const k of Object.keys(d)) if (!(k in en)) { console.log(id, 'extra key', k); bad++; }
-  for (const k of ['nav.home', 'nav.ask', 'nav.check', 'nav.library']) if ([...d[k]].length > 11) console.log(id, 'long dock label', k, d[k]);
+  for (const k of ['nav.home', 'nav.check', 'nav.library']) if ([...d[k]].length > 11) console.log(id, 'long dock label', k, d[k]);
   if (!/Yāppu|யாப்பு/.test(d['check.hint'] + d['about.p1'])) console.log(id, 'Yāppu not kept in check.hint/about.p1');
 }
 
