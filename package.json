@@ -1,0 +1,18 @@
+{
+  "name": "aram",
+  "version": "1.0.0",
+  "description": "Tamil wisdom, one verse at a time: a reader for classical Tamil literature with a kolam and a metre check for every verse.",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check:i18n": "node tools/validate_i18n.js",
+    "sweep": "node tools/sweep.js"
+  }
+}
